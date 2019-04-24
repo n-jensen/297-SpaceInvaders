@@ -8307,11 +8307,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Noel\\source\\repos\\SInv\\sInv\\sInv.csproj",
+      "projectUniqueName": "C:\\Users\\Noel\\source\\repos\\sInv\\sInv\\sInv.csproj",
       "projectName": "sInv",
-      "projectPath": "C:\\Users\\Noel\\source\\repos\\SInv\\sInv\\sInv.csproj",
+      "projectPath": "C:\\Users\\Noel\\source\\repos\\sInv\\sInv\\sInv.csproj",
       "packagesPath": "C:\\Users\\Noel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Noel\\source\\repos\\SInv\\sInv\\obj\\",
+      "outputPath": "C:\\Users\\Noel\\source\\repos\\sInv\\sInv\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

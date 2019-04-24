@@ -1,5 +1,4 @@
-﻿using Microsoft.Graphics.Canvas.UI.Xaml;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,10 +30,6 @@ namespace sInv
           private void CanvasControl_Loaded(object sender, RoutedEventArgs e)
           {
 
-          }
-          private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
-          {
-               args.DrawingSession. 
           }
      }
 }
