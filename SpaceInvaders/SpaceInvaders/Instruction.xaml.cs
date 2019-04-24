@@ -17,19 +17,19 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SpaceInvaders
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
-    {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
-
-          private void PlayButton_Click(object sender, RoutedEventArgs e)
+     /// <summary>
+     /// An empty page that can be used on its own or navigated to within a Frame.
+     /// </summary>
+     public sealed partial class Instruction : Page
+     {
+          public Instruction()
           {
-               this.Frame.Navigate(typeof(Instruction));                        
+               this.InitializeComponent();
+          }
+
+          private void ContinueButton_Click(object sender, RoutedEventArgs e)
+          {
+
           }
      }
 }
