@@ -306,6 +306,32 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-arm": {
@@ -791,6 +817,21 @@
         "build": {
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
+        }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
         }
       }
     },
@@ -1279,6 +1320,21 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-arm64-aot": {
@@ -1766,6 +1822,18 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-x64": {
@@ -2251,6 +2319,21 @@
         "build": {
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
+        }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
         }
       }
     },
@@ -2739,6 +2822,21 @@
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
     "UAP,Version=v10.0.17763/win10-x86": {
@@ -3224,6 +3322,21 @@
         },
         "native": {
           "runtimes/win10-x86/nativeassets/uap10.0.15138/clrcompression.dll": {}
+        }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
         }
       }
     },
@@ -3711,6 +3824,21 @@
         "build": {
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props": {},
           "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets": {}
+        }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
         }
       }
     }
@@ -8142,11 +8270,34 @@
         "runtimes/win10-x86/lib/uap10.0.15138/netstandard.dll",
         "runtimes/win10-x86/nativeassets/uap10.0.15138/clrcompression.dll"
       ]
+    },
+    "Win2D.uwp/1.23.0": {
+      "sha512": "ft/qJRdLqVAX9pPNkgCDhTsf225VKh2CL4wcFv8bI0fDkN4NcKdEAvX7tEkSZnhMoSAjyer9eXUgHF7ICJpt8g==",
+      "type": "package",
+      "path": "win2d.uwp/1.23.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Win2d.githash.txt",
+        "build/Win2D.common.targets",
+        "build/native/Win2D.uwp.targets",
+        "build/win10/Win2D.uwp.targets",
+        "include/Microsoft.Graphics.Canvas.h",
+        "include/Microsoft.Graphics.Canvas.native.h",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.winmd",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
+        "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
+        "win2d.uwp.1.23.0.nupkg.sha512",
+        "win2d.uwp.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.17763": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.7"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.7",
+      "Win2D.uwp >= 1.23.0"
     ]
   },
   "packageFolders": {
@@ -8156,11 +8307,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Noel\\source\\repos\\SpaceInv\\SpaceInv\\SpaceInv.csproj",
+      "projectUniqueName": "C:\\Users\\Noel\\source\\repos\\297GitLabRepos\\SpaceInvadersFolder\\SpaceInvaders\\SpaceInv\\SpaceInv\\SpaceInv.csproj",
       "projectName": "SpaceInv",
-      "projectPath": "C:\\Users\\Noel\\source\\repos\\SpaceInv\\SpaceInv\\SpaceInv.csproj",
+      "projectPath": "C:\\Users\\Noel\\source\\repos\\297GitLabRepos\\SpaceInvadersFolder\\SpaceInvaders\\SpaceInv\\SpaceInv\\SpaceInv.csproj",
       "packagesPath": "C:\\Users\\Noel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Noel\\source\\repos\\SpaceInv\\SpaceInv\\obj\\",
+      "outputPath": "C:\\Users\\Noel\\source\\repos\\297GitLabRepos\\SpaceInvadersFolder\\SpaceInvaders\\SpaceInv\\SpaceInv\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8189,6 +8340,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.7, )"
+          },
+          "Win2D.uwp": {
+            "target": "Package",
+            "version": "[1.23.0, )"
           }
         },
         "imports": [
