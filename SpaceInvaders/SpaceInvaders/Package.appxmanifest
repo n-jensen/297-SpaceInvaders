@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="9394704e-3602-42cb-91ad-3c01185f2868"
+    Name="5e24843a-76a9-4b65-ab65-2e9cb288e87d"
     Publisher="CN=Noel"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="9394704e-3602-42cb-91ad-3c01185f2868" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="5e24843a-76a9-4b65-ab65-2e9cb288e87d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>SpaceInvaders</DisplayName>
