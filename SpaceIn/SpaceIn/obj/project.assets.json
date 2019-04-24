@@ -27977,24 +27977,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vpawar\\.nuget\\packages\\": {},
+    "C:\\Users\\Noel\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vpawar\\source\\repos\\SpaceIn\\SpaceIn\\SpaceIn.csproj",
+      "projectUniqueName": "C:\\Users\\Noel\\source\\repos\\297GitLabRepos\\SpaceInvadersFolder\\SpaceInvaders\\SpaceIn\\SpaceIn\\SpaceIn.csproj",
       "projectName": "SpaceIn",
-      "projectPath": "C:\\Users\\vpawar\\source\\repos\\SpaceIn\\SpaceIn\\SpaceIn.csproj",
-      "packagesPath": "C:\\Users\\vpawar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vpawar\\source\\repos\\SpaceIn\\SpaceIn\\obj\\",
+      "projectPath": "C:\\Users\\Noel\\source\\repos\\297GitLabRepos\\SpaceInvadersFolder\\SpaceInvaders\\SpaceIn\\SpaceIn\\SpaceIn.csproj",
+      "packagesPath": "C:\\Users\\Noel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Noel\\source\\repos\\297GitLabRepos\\SpaceInvadersFolder\\SpaceInvaders\\SpaceIn\\SpaceIn\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\vpawar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Noel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

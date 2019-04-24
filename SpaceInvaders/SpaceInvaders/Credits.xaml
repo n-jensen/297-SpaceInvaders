@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="SpaceInvaders.Credits"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpaceInvaders"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Image HorizontalAlignment="Center" Height="1000" VerticalAlignment="Center" Width="1500" Source="/Assets/chalkboard.png" Stretch="Fill"/>
+        <TextBlock x:Name="credits" HorizontalAlignment="Left" Margin="345,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="48" Height="741" Width="784" Foreground="White" FontWeight="Bold" TextAlignment="Center"><Run Text="MADE BY:"/><LineBreak/><Run/><LineBreak/><Run Text="NOEL JENSEN "/><LineBreak/><Run/><LineBreak/><Run Text="TALAL ALFAHAD"/><LineBreak/><Run/><LineBreak/><Run Text="VARUN PAWAR"/><LineBreak/><Run/><LineBreak/><Run Text="DONOVAN FARRELL"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+    </Grid>
+</Page>

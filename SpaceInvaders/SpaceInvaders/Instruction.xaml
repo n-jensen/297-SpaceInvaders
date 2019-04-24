@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="SpaceInvaders.Instruction"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpaceInvaders"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Image x:Name="Chalk" HorizontalAlignment="Center" Height="1000" VerticalAlignment="Center" Width="1500" Source="/Assets/chalkboard.png" Stretch="Fill" Margin="0,0,0,0" Grid.RowSpan="6"/>
+        <TextBlock x:Name="Instructions" HorizontalAlignment="Left" Margin="108,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="824" Width="1247" FontFamily="Comic Sans MS" FontSize="48" Foreground="#FFFFFBFB" FontWeight="Bold"><Run Text="How to play:"/><LineBreak/><Run Text="1. Use your arrow keys to move your ship from left to right"/><LineBreak/><Run/><LineBreak/><Run Text="2. Try to hit the aliens with your lasers."/><LineBreak/><Run/><LineBreak/><Run Text="3. Don't let the aliens hit you with their lasers!"/><LineBreak/><Run/><LineBreak/><Run Text="4. Hide under your blocks - they're shaped like computers - to avoid being hit."/><LineBreak/><Run/><LineBreak/><Run Text="5. Kill aliens to get points!"/><LineBreak/><Run/><LineBreak/><Run Text="&#xD;&#xA;"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="939,876,0,0" Text="Press the chalk to continue!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontSize="36" Width="501"/>
+        <Button x:Name="continueButton" Content=" " HorizontalAlignment="Left" Margin="1128,726,0,0" VerticalAlignment="Top" Height="145" Width="205" Opacity="0"/>
+
+    </Grid>
+</Page>
