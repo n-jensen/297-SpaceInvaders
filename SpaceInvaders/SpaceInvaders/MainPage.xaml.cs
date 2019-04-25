@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace SpaceInvaders
@@ -29,7 +30,8 @@ namespace SpaceInvaders
 
           private void PlayButton_Click(object sender, RoutedEventArgs e)
           {
-               this.Frame.Navigate(typeof(Instruction));                        
+               this.Frame.Navigate(typeof(Instruction));
+                
           }
 
 
@@ -37,6 +39,13 @@ namespace SpaceInvaders
         {
             this.Frame.Navigate(typeof(Credits));
 
+        }
+
+        public void playSound() 
+        {
+            /*SoundPlayer player = new SoundPlayer(path);
+            player.Load();
+            player.Play();*/
         }
     }
 }

@@ -9,8 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image Source="Assets/chalkboard.PNG"/>
-        <TextBlock x:Name="credits" HorizontalAlignment="Left" Margin="488,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="24" Height="324" Width="274" Foreground="White" FontWeight="Bold" TextAlignment="Center"><Run Text="MADE BY:"/><LineBreak/><Run/><LineBreak/><Run Text="NOEL JENSEN "/><LineBreak/><Run/><LineBreak/><Run Text="TALAL ALFAHAD"/><LineBreak/><Run/><LineBreak/><Run Text="VARUN PAWAR"/><LineBreak/><Run/><LineBreak/><Run Text="DONOVAN FARRELL"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-        <Image HorizontalAlignment="Left" Height="100" Margin="560,371,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/chalkboardGirlAlien.PNG"/>
+        <TextBlock x:Name="credits" HorizontalAlignment="Left" Margin="488,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="24" Height="393" Width="290" Foreground="White" FontWeight="Bold" TextAlignment="Center" SelectionChanged="Credits_SelectionChanged" Text="MADE BY:&#xD;&#xA;&#xD;&#xA;NOEL JENSEN &#xD;&#xA;&#xD;&#xA;TALAL ALFAHAD&#xD;&#xA;&#xD;&#xA;VARUN PAWAR&#xD;&#xA;&#xD;&#xA;DONOVAN FARRELL&#xD;&#xA;&#xD;&#xA;LASER MR CHARNESKY&#xD;&#xA;&#xD;&#xA;"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="579,460,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/chalkboardGirlAlien.PNG" RenderTransformOrigin="0.8,0.53"/>
 
     </Grid>
 </Page>

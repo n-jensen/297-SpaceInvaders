@@ -8,15 +8,13 @@ using System.Threading;
 using Windows.UI;
 using System.Windows.Input;
 using Windows.Gaming.Input;
-
-
+using Windows.UI.Xaml;
 
 namespace SpaceInvaders
 {
 
      public interface IImage
      {
-          //do I create a new image? Or get implement the image creation task from .xaml.cs (ship, alien, laser)
           void Image(CanvasDrawingSession image);
         //What is the difference between DrawImage and CanvasDrawingSession?
      }
@@ -25,7 +23,7 @@ namespace SpaceInvaders
      public class SI //Space Invaders
     {
         private Alien alien;
-        private Ship ship;
+        public Ship ship;
         private Lasers lasers;
         private Score score;
         private List<Alien> AlienList;
@@ -36,6 +34,18 @@ namespace SpaceInvaders
         //private CanvasBitmap LaserImage;
 
         private bool gameOver = false;
+        
+        public bool MoveShipLeft(bool moveLeft)
+        {
+            ship.MoveLeft = moveLeft;
+            return ship.MoveLeft;
+        }
+
+        public bool MoveShipRight(bool moveRight)
+        {
+            ship.MoveRight = moveRight;
+            return ship.MoveRight;
+        }
 
         public SI(CanvasBitmap alienImage, CanvasBitmap shipImage, CanvasBitmap laserImage)
           {
@@ -45,71 +55,103 @@ namespace SpaceInvaders
             score = new Score();
             AlienList = new List<Alien>(10);
             drawables = new List<IImage>();
+            FillAlienList(alienImage, AlienList);
 
-
-            //AlienImage = alienImage;
-            //ShipImage = shipImage;
-            //LaserImage = laserImage;
-            FillAlienList(alienImage);
-            Update(alienImage, shipImage, laserImage);   
+           /* Window.Current.CoreWindow.KeyDown += Canvas_KeyDown;
+            Window.Current.CoreWindow.KeyUp += Canvas_KeyUp;
+            */
+            //Update(alienImage, shipImage, laserImage);   
           }
 
         public void Update(CanvasBitmap alienImage, CanvasBitmap shipImage, CanvasBitmap laserImage)//CanvasDrawingSession image)//
         {
-            while (gameOver == false)
+            if (gameOver == false)
             {
-                ship.Update();
-                alien.Update();
-                drawables.Add(ship);
-                drawables.Add(alien);
-                controller = Gamepad.Gamepads.First();
-                var reading = controller.GetCurrentReading();
-                if (reading.Buttons.HasFlag(GamepadButtons.A))
+
+                if (MoveShipLeft(ship.MoveLeft) == true || MoveShipRight(ship.MoveRight) == true)
                 {
-                    lasers.ShootLaser(laserImage, ship);
-                    lasers.Update(laserImage, ship);
-                    lasers = new Lasers(lasers.X, lasers.Y, laserImage);
-                    drawables.Add(lasers);
+                    ship.Update();
                 }
 
+                alien.Update();
 
-                int lastAlienToTouch = 0;
-                for (int index = 1; index <= 10; index++)
+                drawables.Add(ship);
+                for(int i = 0; i < 10; i++)
                 {
-                    if (AlienList[index - 1].GotHit == false)
+                    drawables.Add(AlienList[i]);
+                }
+                if (Gamepad.Gamepads.Count > 0)
+                {
+                    controller = Gamepad.Gamepads.First();
+                    var reading = controller.GetCurrentReading();
+                    if (reading.Buttons.HasFlag(GamepadButtons.A))
                     {
-                        lastAlienToTouch = index - 1;
-
+                        lasers.ShootLaser(laserImage, ship);
+                        lasers.Update(laserImage, ship);
+                        lasers = new Lasers(lasers.X, lasers.Y, laserImage);
+                        drawables.Add(lasers);
                     }
                 }
-                if (AlienList[lastAlienToTouch].centerX == 400 || lastAlienToTouch == 0)
+                Collide(lasers, AlienList);
+
+                gameOver = HitAll(AlienList); //if gameOver turns true, should quit
+
+                if (gameOver == false)
                 {
-                    score.LivesLeft--;
-                    if (score.LivesLeft == 0)
+                    int lastAlienToTouch = 0;
+                    for (int index = 1; index <= 10; index++)
                     {
-                        gameOver = true;
+                        if (AlienList[index - 1].GotHit == false && AlienList[index - 1].Y == 400)
+                        {
+                            lastAlienToTouch = index - 1;
+
+                            if (score.LivesLeft == 0)
+                            {
+                                gameOver = true;
+                            }
+
+                        }
                     }
                 }
             }
         }
 
-        public void FillAlienList(CanvasBitmap alienImage)
+        public bool HitAll(List<Alien> AlienList)
         {
+            int NumberOfDeadAliens = 0;
+            for(int index = 0; index < 10; index++)
+            {
+                if (AlienList[index].GotHit == true)
+                {
+                    NumberOfDeadAliens++;
+                }
+            }
+            if (NumberOfDeadAliens == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void FillAlienList(CanvasBitmap alienImage, List<Alien> AlientList)
+        {
+            AlienList = Enumerable.Repeat(new Alien(400,400, alienImage), 10).ToList();
             for (int index = 0; index < 10; index++)
             {
-                AlienList[index].centerX = 60 + (index + 10);
-                AlienList[index].Y = 40;
-                AlienList[index].AlienImage = alienImage;
+                AlienList[index] = new Alien((400 +(60*index)), 200, alienImage);
                 AlienList[index].GotHit = false;
             }
         }
 
 
-        public void Collide()
+        public void Collide(Lasers Laser, List<Alien> AlientList)
         {
             for (int index = 0; index < 10; index++)
             {
-                if (lasers.Y == AlienList[index].Y && lasers.X == AlienList[index].centerX) //FIXME && xRight <= alien.XRight && xLeft >= alien.XLeft)
+                if (lasers.Y == AlienList[index].Y && lasers.X == AlienList[index].X) 
                 {
                     lasers.LaserImage = null;
                     AlienList[index].AlienImage = null;
@@ -158,7 +200,6 @@ namespace SpaceInvaders
         {
             Y += 2;
         }
-
 
         public void Image(CanvasDrawingSession image)
         {

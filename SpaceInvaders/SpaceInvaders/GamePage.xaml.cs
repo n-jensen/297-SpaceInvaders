@@ -37,38 +37,53 @@ namespace SpaceInvaders
 
         private void Canvas_Draw(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs args)
         {
+            
+            //args.DrawingSession.DrawImage(ShipImage, 400, 500);    
+            //args.DrawingSession.DrawImage(AlienImage, 400, 500);
+            //args.DrawingSession.DrawRectangle(LaserImage, 200, 300);
 
-            args.DrawingSession.DrawImage(ShipImage, 400, 500);    //DrawRectangle(100,100,100,100, Color.FromArgb(255, 255, 255, 255)); //FIXME
-            args.DrawingSession.DrawImage(AlienImage, 400, 500);
-            args.DrawingSession.DrawRectangle(300, 400, 300, 400, Color.FromArgb(10, 255, 255, 255));
+            Si.DrawGame(args.DrawingSession);
 
         }
 
-
+        //2nd
         private async Task CreateResourcesAsync(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender)
         {
             ShipImage = await CanvasBitmap.LoadAsync(sender, "Assets/laserCharnesky.PNG");
             AlienImage = await CanvasBitmap.LoadAsync(sender, "Assets/chalkboardGirlAlien.PNG");
             LaserImage = await CanvasBitmap.LoadAsync(sender, "Assets/Redf.png");
 
-
             Si = new SI(AlienImage, ShipImage, LaserImage);
         }
 
-        private void Canvas_Update(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs args)
+       private void Canvas_Update(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs args)
         {
             Si.Update(AlienImage, ShipImage, LaserImage);
         }
 
+        //first
         private void Canvas_CreateResources_1(Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {
             args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
 
         }
 
-        private void Button_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+        private void Canvas_KeyRight(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
-           
+
+            if (e.VirtualKey == Windows.System.VirtualKey.Right)
+            {
+                Si.MoveShipRight(true);
+            }
+
         }
+        private void Canvas_KeyLeft(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
+        {
+            if (e.VirtualKey == Windows.System.VirtualKey.Left)
+            {
+                Si.MoveShipLeft(true);
+            }
+        }
+
     }
 }

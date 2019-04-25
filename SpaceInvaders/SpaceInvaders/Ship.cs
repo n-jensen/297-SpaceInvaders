@@ -29,6 +29,7 @@ namespace SpaceInvaders
             this.shipImage = image;
         }
 
+        
         public void Update()
         {
             if (MoveRight && X > 443 && X < 921)

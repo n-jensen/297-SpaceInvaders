@@ -27,6 +27,9 @@ namespace SpaceInvaders
             this.InitializeComponent();
         }
 
+        private void Credits_SelectionChanged(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
