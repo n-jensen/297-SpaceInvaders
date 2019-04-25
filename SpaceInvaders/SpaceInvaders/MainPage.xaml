@@ -13,6 +13,9 @@
         <Image Source="Assets/CharnMenu.PNG"/>
         <Button x:Name="playButton" Content=" " HorizontalAlignment="Center" Margin="0,201,0,0" VerticalAlignment="Top" Height="241" Width="167" Opacity="0" RenderTransformOrigin="0.533,1.199" Click="PlayButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="343,461,0,0" Text="PRESS LASER CHARNESKY TO PLAY!" TextWrapping="Wrap" VerticalAlignment="Top" Height="68" Width="723" FontFamily="Comic Sans MS" FontSize="36" CharacterSpacing="30" FontWeight="Bold" Foreground="#FFFDFDFD"/>
+        <TextBlock HorizontalAlignment="Left" Margin="278,348,0,0" Text="Press to visit credits!" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="43" Margin="327,300,0,0" VerticalAlignment="Top" Width="45" Source="/Assets/chalkboardBoyAlien.PNG"/>
+        <Button x:Name="Credits" Content="" HorizontalAlignment="Left" Margin="322,303,0,0" VerticalAlignment="Top" Height="37" Width="52" Opacity="0" Click="Credits_Click"/>
     </Grid>
 
 </Page>
