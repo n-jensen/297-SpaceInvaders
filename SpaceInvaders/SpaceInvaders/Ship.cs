@@ -20,24 +20,22 @@ namespace SpaceInvaders
         public bool MoveLeft { get; set; }
         public bool MoveRight { get; set; }
 
-        public Ship(int x, int y, int width, int height, CanvasBitmap image)
+        public Ship(int x, int y, CanvasBitmap image)
         {
             X = x;
             Y = y;
-            Width = width;
-            Height = height;
             MoveLeft = false;
             MoveRight = false;
-            this.shipImage = 
+            this.shipImage = image;
         }
 
         public void Update()
         {
-            if (MoveRight)
+            if (MoveRight && X > 443 && X < 921)
             {
                 X += 1;
             }
-            else if (MoveLeft)
+            else if (MoveLeft && X > 443 && X < 921)
             {
                 X -= 1;
             }

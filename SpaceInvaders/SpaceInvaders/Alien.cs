@@ -14,8 +14,6 @@ namespace SpaceInvaders
     public class Alien : IImage
     {
         //an image, dimensions, placement, hit yes/no
-        public int XRight { get; set; }
-        public int XLeft { get; set; }
         public int centerX { get; set; }
         public int Y { get; set; }
         public CanvasBitmap AlienImage;

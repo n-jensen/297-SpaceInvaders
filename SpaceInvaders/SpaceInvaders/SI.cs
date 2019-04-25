@@ -29,81 +29,78 @@ namespace SpaceInvaders
         private Lasers lasers;
         private Score score;
         private List<Alien> AlienList;
-        private CanvasBitmap AlienImage;
-        private CanvasBitmap ShipImage;
-        private CanvasBitmap LaserImage;
+        private Gamepad controller;
+        private List<IImage> drawables;
+        //private CanvasBitmap AlienImage;
+        //private CanvasBitmap ShipImage;
+        //private CanvasBitmap LaserImage;
 
         private bool gameOver = false;
 
         public SI(CanvasBitmap alienImage, CanvasBitmap shipImage, CanvasBitmap laserImage)
           {
-            alien = new Alien();
-            ship = new Ship();
-            lasers = new Lasers();
+            alien = new Alien(400, 500, alienImage);
+            ship = new Ship(400, 500, shipImage);
+            lasers = new Lasers(0, 0, laserImage);
             score = new Score();
             AlienList = new List<Alien>(10);
+            drawables = new List<IImage>();
 
-            AlienImage = alienImage;
-            ShipImage = shipImage;
-            LaserImage = laserImage;
-            FillAlienList();
-            Update(AlienImage, ShipImage, laserImage);   
+
+            //AlienImage = alienImage;
+            //ShipImage = shipImage;
+            //LaserImage = laserImage;
+            FillAlienList(alienImage);
+            Update(alienImage, shipImage, laserImage);   
           }
 
         public void Update(CanvasBitmap alienImage, CanvasBitmap shipImage, CanvasBitmap laserImage)//CanvasDrawingSession image)//
         {
-
-            /*controller = KeyValuePair.Gamepads.First();
-            var reading = controller.GetCurrentReading();
-            ship.X += (int)(reading.LeftThumbstickX * 5);*/
-
-            ship.Update();
-            alien.Update();
-            if (spacebuttonIsPressed)
+            while (gameOver == false)
             {
-                lasers.ShootLaser(LaserImage, ship);
-                lasers.Update(LaserImage, ship);
-                lasers.Image(image);
-            }
-            //FIXME After updates, need to draw the images where they are meant to be
-
-            CanvasDrawingSession.DrawImage(laserImage, lasers.X, lasers.Y);
-
-            //ship.Image(image);
-            //alien.Image(image);
-
-
-            int lastAlienToTouch = 0;
-            for(int index = 1; index <= 10; index++)
-            {
-                if(AlienList[index-1].GotHit == false)
+                ship.Update();
+                alien.Update();
+                drawables.Add(ship);
+                drawables.Add(alien);
+                controller = Gamepad.Gamepads.First();
+                var reading = controller.GetCurrentReading();
+                if (reading.Buttons.HasFlag(GamepadButtons.A))
                 {
-                    lastAlienToTouch = index-1;
-                    
+                    lasers.ShootLaser(laserImage, ship);
+                    lasers.Update(laserImage, ship);
+                    lasers = new Lasers(lasers.X, lasers.Y, laserImage);
+                    drawables.Add(lasers);
                 }
-            }
-            if (AlienList[lastAlienToTouch].centerX == 400 || lastAlienToTouch == 0)
-            {
-                score.LivesLeft--;
-                if (score.LivesLeft == 0)
+
+
+                int lastAlienToTouch = 0;
+                for (int index = 1; index <= 10; index++)
                 {
-                    gameOver = true;
+                    if (AlienList[index - 1].GotHit == false)
+                    {
+                        lastAlienToTouch = index - 1;
+
+                    }
+                }
+                if (AlienList[lastAlienToTouch].centerX == 400 || lastAlienToTouch == 0)
+                {
+                    score.LivesLeft--;
+                    if (score.LivesLeft == 0)
+                    {
+                        gameOver = true;
+                    }
                 }
             }
         }
 
-        public void FillAlienList()
+        public void FillAlienList(CanvasBitmap alienImage)
         {
             for (int index = 0; index < 10; index++)
             {
                 AlienList[index].centerX = 60 + (index + 10);
                 AlienList[index].Y = 40;
-                AlienList[index].XLeft = AlienList[index].centerX - 24;    //get alien's left and rightmost side locations??
-                AlienList[index].XRight = AlienList[index].centerX + 24;
-                AlienList[index].AlienImage = AlienImage;
+                AlienList[index].AlienImage = alienImage;
                 AlienList[index].GotHit = false;
-                gameOver = false;
-
             }
         }
 
@@ -114,11 +111,20 @@ namespace SpaceInvaders
             {
                 if (lasers.Y == AlienList[index].Y && lasers.X == AlienList[index].centerX) //FIXME && xRight <= alien.XRight && xLeft >= alien.XLeft)
                 {
-                    LaserImage = null;
+                    lasers.LaserImage = null;
                     AlienList[index].AlienImage = null;
                     AlienList[index].GotHit = true;
-                    score.FinalScore++;
+                    score.FinalScore += 10;
                 }
+            }
+        }
+
+
+        public void DrawGame(CanvasDrawingSession canvas)
+        {
+            foreach (var drawable in drawables)
+            {
+                drawable.Image(canvas);
             }
         }
     }
@@ -130,11 +136,14 @@ namespace SpaceInvaders
     {
         public int X;
         public int Y;
-        private CanvasBitmap LaserImage;
+        public CanvasBitmap LaserImage;
         
 
-        public Lasers()
+        public Lasers(int x, int y, CanvasBitmap image)
         {
+            X = x;
+            Y = y;
+            LaserImage = image;
         }
 
         public void ShootLaser(CanvasBitmap laserImage, Ship ship)

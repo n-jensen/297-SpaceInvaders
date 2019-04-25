@@ -27,6 +27,7 @@ namespace SpaceInvaders
      {
         public CanvasBitmap AlienImage;
         public CanvasBitmap ShipImage;
+        public CanvasBitmap LaserImage;
         SI Si;
 
         public GamePage()
@@ -48,13 +49,15 @@ namespace SpaceInvaders
         {
             ShipImage = await CanvasBitmap.LoadAsync(sender, "Assets/laserCharnesky.PNG");
             AlienImage = await CanvasBitmap.LoadAsync(sender, "Assets/chalkboardGirlAlien.PNG");
+            LaserImage = await CanvasBitmap.LoadAsync(sender, "Assets/Redf.png");
 
-            Si = new SI(AlienImage, ShipImage);
+
+            Si = new SI(AlienImage, ShipImage, LaserImage);
         }
 
         private void Canvas_Update(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs args)
         {
-            SI.Update(args.CanvasDrawingSession);
+            Si.Update(AlienImage, ShipImage, LaserImage);
         }
 
         private void Canvas_CreateResources_1(Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
