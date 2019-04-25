@@ -68,7 +68,7 @@ namespace SpaceInvaders
 
         }
 
-        private void Canvas_KeyRight(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
+        private void Canvas_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
 
             if (e.VirtualKey == Windows.System.VirtualKey.Right)
@@ -77,7 +77,7 @@ namespace SpaceInvaders
             }
 
         }
-        private void Canvas_KeyLeft(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
+        private void Canvas_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
             if (e.VirtualKey == Windows.System.VirtualKey.Left)
             {
