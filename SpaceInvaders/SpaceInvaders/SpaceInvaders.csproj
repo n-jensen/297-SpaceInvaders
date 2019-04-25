@@ -116,8 +116,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Alien.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Credits.xaml.cs">
+      <DependentUpon>Credits.xaml</DependentUpon>
     </Compile>
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
@@ -125,11 +129,11 @@
     <Compile Include="Instruction.xaml.cs">
       <DependentUpon>Instruction.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lasers.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ship.cs" />
     <Compile Include="SI.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,10 +144,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\chalkboard.png" />
-    <Content Include="Assets\chalkboardGirlAlien.PNG" />
+    <Content Include="Assets\chalkboardBoyAlien.PNG" />
+    <Content Include="Assets\chalkboardGirlAlien.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\CharnMenu.PNG" />
     <Content Include="Assets\Instructions.PNG" />
-    <Content Include="Assets\laserCharnesky.PNG" />
+    <Content Include="Assets\laserCharnesky.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="chalkboard.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

@@ -1,82 +1,104 @@
-﻿using System;
+﻿using Microsoft.Graphics.Canvas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
+using System.Threading;
+using Windows.UI;
 
 namespace SpaceInvaders
 {
-     public interface IImage
+
+    /* public interface IImage
      {
           //do I create a new image? Or get implement the image creation task from .xaml.cs (ship, alien, laser)
-          bool Image(TaskCreationOptions image);
+          void Image(CanvasDrawingSession image);
+
      }
      public interface ICollidable
      {
-          bool Collide(int x, int y, int height, int width);
+          bool Collide(int xRight, int xLeft, int y, int height, int width);
      }
-    public class SI //Space Invaders
+
+
+
+
+    //import 100 images that move across the screen left and right
+        //when a "laser" shoots the alien, it disappears, score++
+        //When a 
+
+     public class SI //Space Invaders
     {
-          private List<Alien> alien;
+          private List<Alien> AlienList;
+        Alien alien;
           private Ship ship;
           private Lasers lasers;
           private Score score;
+        private CanvasBitmap AlienImage;
+        private CanvasBitmap ShipImage;
 
-          public SI()
+        private bool gaemOver = false;
+
+        public SI(CanvasBitmap alienImage, CanvasBitmap shipImage)
           {
-               alien = new List<Alien>();
-               ship = new Ship();
+            Alien alien = new Alien();
+            AlienList = new List<Alien>(10);
+            AlienImage = alienImage;
+            ShipImage = shipImage;
+            Ship ship = new Ship();
+            FillAlienList();
                
           }
 
-     }
-     public class Alien : ICollidable
-     {
-          //alien IImage: image, area, hit yes/no
-          //need multiple aliens all at one t
-          public int X { get; set; }
-          public int Y { get; set; }
+        public void FillAlienList()
+        {
+            for (int index = 0; index < 10; index++)
+            {
+                AlienList[index].centerX = 60 + (index+10);
+                AlienList[index].Y = 40;
+                //AlienList[index].XLeft = (centerX - )     //get alien's left and rightmost side locations??
+                AlienList[index].alienImage = AlienImage;
+                AlienList[index].GotHit = false;
+            }
+        }
 
-          public Alien()
-          {
-
-          }
-
-     }
-
-     public class Ship : ICollidable
-     {
-
-          public Ship()
-          {
-               //create a picture of a ship here
-               //only one ship is used throughout the game
-               
-          }
-
-     }
+        public bool Collide(int xRight, int xLeft, int y, int height, int width)
+        {
+            return y == alien.Y && xRight <= alien.XRight && xLeft >= alien.XLeft;
+        }
 
 
+
+
+
+
+    }
+
+
+
+
+
+    public class Lasers
+    {
+
+        public Lasers(int x, int y,  int height, int width)
+        {
+
+        }
+    }
 
      public class Score
      {
-
+        public int FinalScore { get; set; }
+        public int LivesLeft { get; set; }
+        public Score()
+        {
+            FinalScore = 0;
+            LivesLeft = 3;
+        }
      }
 
+    */
 
-
-
-
-     public bool Update()
-     {
-          //Add 100 aliens/ multiple rows (4)
-
-          //if ship collides with alien
-               //alien dies, score++
-          //if alien hits ship
-               //ship dies, trigger noise / end game
-          //if all aliens go off screen
-               //end game, score finished
-     }
 }

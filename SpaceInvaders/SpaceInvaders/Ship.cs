@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders
 {
-    class Lasers
+    public class Ship
     {
-
-            //Whenever user presses space, send a laser
-            //lasers only come out of ship
-        public Lasers()
+        public Ship()
         {
+            //create a picture of a ship here
+            //only one ship is used throughout the game
 
         }
+
 
     }
 }

@@ -10,6 +10,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image Source="Assets/chalkboard.png" Width="700"/>
-        <canvas:CanvasAnimatedControl x:Name="canvas" Draw="Canvas_Draw" Update="Canvas_Update" CreateResources="Canvas_CreateResources"   />
+        <canvas:CanvasAnimatedControl x:Name="canvas" Draw="Canvas_Draw" Update="Canvas_Update" CreateResources="Canvas_CreateResources_1"   />
+        <Button Content="Button" HorizontalAlignment="Left" Margin="921,175,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
