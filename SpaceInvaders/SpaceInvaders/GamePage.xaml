@@ -11,6 +11,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image Source="Assets/chalkboard.png" Width="700"/>
         <canvas:CanvasAnimatedControl x:Name="canvas" Draw="Canvas_Draw" Update="Canvas_Update" CreateResources="Canvas_CreateResources_1"   />
-        <Button Content="Button" HorizontalAlignment="Left" Margin="921,175,0,0" VerticalAlignment="Top"/>
+        <Button Content="Left" HorizontalAlignment="Left" Margin="883,455,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Height="27" Width="47" FontSize="11" PreviewKeyDown="Button_PreviewKeyDown"/>
+        <Button Content="Right" HorizontalAlignment="Left" Margin="935,456,0,0" VerticalAlignment="Top" Height="27" Width="47" FontSize="10" FontFamily="Comic Sans MS"/>
     </Grid>
 </Page>

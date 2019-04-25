@@ -1,20 +1,70 @@
 ﻿using System;
+using Microsoft.Graphics.Canvas;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Gaming.Input;
 
 namespace SpaceInvaders
 {
-    public class Ship
-    {
-        public Ship()
-        {
-            //create a picture of a ship here
-            //only one ship is used throughout the game
 
+    public class Ship : IImage, ICollidable
+    {
+        public CanvasBitmap shipImage;
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+
+        public bool MoveLeft { get; set; }
+        public bool MoveRight { get; set; }
+
+        public Ship(int x, int y, int width, int height, CanvasBitmap image)
+        {
+            X = x;
+            Y = y;
+            Width = width;
+            Height = height;
+            MoveLeft = false;
+            MoveRight = false;
+            this.shipImage = 
         }
 
+        public void Update()
+        {
+            if (MoveRight)
+            {
+                X += 1;
+            }
+            else if (MoveLeft)
+            {
+                X -= 1;
+            }
+        }
 
+        public bool CollidesLeftEdge(int x, int y)
+        {
+            return x >= X && x <= X + Width && y >= Y && y <= Y + Height;
+        }
+
+        public bool CollidesRightEdge(int x, int y)
+        {
+            return x >= X && x <= X + Width && y >= Y && y <= Y + Height;
+        }
+        public void Image(CanvasDrawingSession canvas)
+        {
+            canvas.DrawImage(shipImage, X, Y);
+        }
+
+        
     }
+
+    public interface ICollidable
+    {
+        bool CollidesLeftEdge(int x, int y);
+        bool CollidesRightEdge(int x, int y);
+    }
+
+    
 }

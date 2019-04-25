@@ -27,7 +27,7 @@ namespace SpaceInvaders
      {
         public CanvasBitmap AlienImage;
         public CanvasBitmap ShipImage;
-        //SI Si;
+        SI Si;
 
         public GamePage()
         {
@@ -37,7 +37,9 @@ namespace SpaceInvaders
         private void Canvas_Draw(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs args)
         {
 
-              args.DrawingSession.DrawRectangle(100,100,100,100, Color.FromArgb(255, 255, 255, 255)); //FIXME
+            args.DrawingSession.DrawImage(ShipImage, 400, 500);    //DrawRectangle(100,100,100,100, Color.FromArgb(255, 255, 255, 255)); //FIXME
+            args.DrawingSession.DrawImage(AlienImage, 400, 500);
+            args.DrawingSession.DrawRectangle(300, 400, 300, 400, Color.FromArgb(10, 255, 255, 255));
 
         }
 
@@ -47,18 +49,23 @@ namespace SpaceInvaders
             ShipImage = await CanvasBitmap.LoadAsync(sender, "Assets/laserCharnesky.PNG");
             AlienImage = await CanvasBitmap.LoadAsync(sender, "Assets/chalkboardGirlAlien.PNG");
 
-            //Si = new SI(AlienImage, ShipImage);
+            Si = new SI(AlienImage, ShipImage);
         }
 
         private void Canvas_Update(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedUpdateEventArgs args)
         {
-
+            SI.Update(args.CanvasDrawingSession);
         }
 
         private void Canvas_CreateResources_1(Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {
             args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
 
+        }
+
+        private void Button_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+           
         }
     }
 }
