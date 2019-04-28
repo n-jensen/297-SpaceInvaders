@@ -129,10 +129,12 @@
     <Compile Include="Instruction.xaml.cs">
       <DependentUpon>Instruction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Laser.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="SI.cs" />
   </ItemGroup>

@@ -8,9 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Source="Assets/chalkboard.PNG"/>
-        <TextBlock x:Name="credits" HorizontalAlignment="Left" Margin="488,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="24" Height="393" Width="290" Foreground="White" FontWeight="Bold" TextAlignment="Center" SelectionChanged="Credits_SelectionChanged" Text="MADE BY:&#xD;&#xA;&#xD;&#xA;NOEL JENSEN &#xD;&#xA;&#xD;&#xA;TALAL ALFAHAD&#xD;&#xA;&#xD;&#xA;VARUN PAWAR&#xD;&#xA;&#xD;&#xA;DONOVAN FARRELL&#xD;&#xA;&#xD;&#xA;LASER MR CHARNESKY&#xD;&#xA;&#xD;&#xA;"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="579,460,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/chalkboardGirlAlien.PNG" RenderTransformOrigin="0.8,0.53"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Image Source="Assets/chalkboard.PNG" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Stretch"/>
+        <TextBlock x:Name="credits" HorizontalAlignment="Left" Margin="488,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="24" Height="393" Width="290" Foreground="White" FontWeight="Bold" TextAlignment="Center" SelectionChanged="Credits_SelectionChanged" Text="MADE BY:&#xD;&#xA;&#xD;&#xA;NOEL JENSEN &#xD;&#xA;&#xD;&#xA;TALAL ALFAHAD&#xD;&#xA;&#xD;&#xA;VARUN PAWAR&#xD;&#xA;&#xD;&#xA;DONOVAN FARRELL&#xD;&#xA;&#xD;&#xA;LASER MR CHARNESKY&#xD;&#xA;&#xD;&#xA;" Grid.RowSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="579,22,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/chalkboardGirlAlien.PNG" RenderTransformOrigin="0.8,0.53" Grid.Row="1"/>
+        <Button Content="Press to return to Main Menu!" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Click="Button_Click" FontFamily="Comic Sans MS" Foreground="White" Opacity="100" Grid.Row="1"/>
 
     </Grid>
 </Page>

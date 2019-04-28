@@ -32,11 +32,11 @@ namespace SpaceInvaders
         
         public void Update()
         {
-            if (MoveRight && X > 443 && X < 921)
+            if (MoveRight) //&& X > 443 && X < 921)
             {
                 X += 1;
             }
-            else if (MoveLeft && X > 443 && X < 921)
+            else if (MoveLeft) //&& X > 443 && X < 921)
             {
                 X -= 1;
             }

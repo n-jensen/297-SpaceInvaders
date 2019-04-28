@@ -13,6 +13,7 @@
         <TextBlock x:Name="Instructions" HorizontalAlignment="Left" Margin="276,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="315" Width="564" FontFamily="Comic Sans MS" FontSize="24" Foreground="#FFFFFBFB" FontWeight="Bold"><Run Text="How to play:"/><LineBreak/><Run Text="1. Use your arrow keys to move your ship from left to right"/><LineBreak/><Run Text="2. Try to hit the aliens with your lasers."/><LineBreak/><Run Text="3. Don't let the aliens hit you with their lasers!"/><LineBreak/><Run Text="4. Hide under your blocks - they're shaped like computers - to avoid being hit."/><LineBreak/><Run Text="5. Kill aliens to get points!"/><LineBreak/><Run/><LineBreak/><Run Text="&#xA;"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="862,498,0,0" Text="Press the chalk to continue!" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Comic Sans MS" FontSize="18" Width="247" Height="47"/>
         <Button Content=" " HorizontalAlignment="Left" Margin="950,528,0,0" VerticalAlignment="Top" Height="86" Width="108" Click="Button_Click" Opacity="0"/>
+        <Button Content="Return to Menu!" HorizontalAlignment="Left" Margin="355,511,0,0" VerticalAlignment="Top" Click="Button_Click_1" Opacity="0"  FontFamily="Comic Sans MS" Foreground="#FFFFFBFB"/>
 
     </Grid>
 </Page>

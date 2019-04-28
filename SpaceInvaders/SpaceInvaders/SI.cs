@@ -87,7 +87,7 @@ namespace SpaceInvaders
                     if (reading.Buttons.HasFlag(GamepadButtons.A))
                     {
                         lasers.ShootLaser(laserImage, ship);
-                        lasers.Update(laserImage, ship);
+                        lasers.Update(laserImage);
                         lasers = new Lasers(lasers.X, lasers.Y, laserImage);
                         drawables.Add(lasers);
                     }
@@ -169,52 +169,29 @@ namespace SpaceInvaders
                 drawable.Image(canvas);
             }
         }
+
+
+        public void SetShipTravelingLeftward(bool travelingLeftward)
+        {
+            ship.MoveLeft = travelingLeftward;
+        }
+
+        public void SetShipTravelingRightward(bool travelingRightward)
+        {
+            ship.MoveRight = travelingRightward;
+        }
+
+
     }
 
 
 
 
-    public class Lasers : IImage
-    {
-        public int X;
-        public int Y;
-        public CanvasBitmap LaserImage;
-        
 
-        public Lasers(int x, int y, CanvasBitmap image)
-        {
-            X = x;
-            Y = y;
-            LaserImage = image;
-        }
 
-        public void ShootLaser(CanvasBitmap laserImage, Ship ship)
-        {
-            LaserImage = laserImage;
-            X = ship.X;
-            Y = 435;
-            //these ^^ declare where the image will be placed when it is uploaded/declared
-        }
 
-        public void Update(CanvasBitmap laserImage, Ship ship)
-        {
-            Y += 2;
-        }
 
-        public void Image(CanvasDrawingSession image)
-        {
-            image.DrawImage(LaserImage, X, Y);
-        }
-    }
 
-     public class Score
-     {
-        public int FinalScore { get; set; }
-        public int LivesLeft { get; set; }
-        public Score()
-        {
-            FinalScore = 0;
-            LivesLeft = 3;
-        }
-     }
+
+
 }

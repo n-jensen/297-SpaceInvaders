@@ -7,7 +7,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,23 +32,29 @@ namespace SpaceInvaders
         public CanvasBitmap LaserImage;
         SI Si;
 
+        public object Key { get; private set; }
+
         public GamePage()
         {
-               this.InitializeComponent();
+            this.InitializeComponent();
+            Window.Current.CoreWindow.KeyDown += Canvas_KeyDown;
+            Window.Current.CoreWindow.KeyUp += Canvas_KeyUp;
         }
 
         private void Canvas_Draw(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedDrawEventArgs args)
         {
-            
-            //args.DrawingSession.DrawImage(ShipImage, 400, 500);    
-            //args.DrawingSession.DrawImage(AlienImage, 400, 500);
-            //args.DrawingSession.DrawRectangle(LaserImage, 200, 300);
-
             Si.DrawGame(args.DrawingSession);
-
+            /*//if (Window.Current.CoreWindow.GetKeyState(VirtualKey.Space).HasFlag(CoreVirtualKeyStates.Down))
+            if (Window.Current.CoreWindow.GetAsyncKeyState(VirtualKey.Space) == 
+                Windows.UI.Core.CoreVirtualKeyStates.Down)
+            {
+                Lasers laser = new Lasers(0, 0, LaserImage);
+                laser.ShootLaser(LaserImage, Si.ship);
+                laser.Image(args.DrawingSession);
+                laser.Update(LaserImage);
+            }*/
         }
 
-        //2nd
         private async Task CreateResourcesAsync(Microsoft.Graphics.Canvas.UI.Xaml.ICanvasAnimatedControl sender)
         {
             ShipImage = await CanvasBitmap.LoadAsync(sender, "Assets/laserCharnesky.PNG");
@@ -61,27 +69,32 @@ namespace SpaceInvaders
             Si.Update(AlienImage, ShipImage, LaserImage);
         }
 
-        //first
         private void Canvas_CreateResources_1(Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
         {
             args.TrackAsyncAction(CreateResourcesAsync(sender).AsAsyncAction());
-
         }
 
         private void Canvas_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
-
             if (e.VirtualKey == Windows.System.VirtualKey.Right)
             {
                 Si.MoveShipRight(true);
             }
-
-        }
-        private void Canvas_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
-        {
-            if (e.VirtualKey == Windows.System.VirtualKey.Left)
+            else if (e.VirtualKey == Windows.System.VirtualKey.Left)
             {
                 Si.MoveShipLeft(true);
+            }
+        }
+
+        private void Canvas_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
+        {
+            if (e.VirtualKey == Windows.System.VirtualKey.Right)
+            {
+                Si.MoveShipLeft(false);
+            }
+            else if (e.VirtualKey == Windows.System.VirtualKey.Left)
+            {
+                Si.MoveShipRight(false);
             }
         }
 

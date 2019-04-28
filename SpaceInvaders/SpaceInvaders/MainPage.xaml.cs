@@ -31,7 +31,7 @@ namespace SpaceInvaders
           private void PlayButton_Click(object sender, RoutedEventArgs e)
           {
                this.Frame.Navigate(typeof(Instruction));
-                
+
           }
 
 

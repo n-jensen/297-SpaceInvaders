@@ -26,9 +26,6 @@ namespace SpaceInvaders
             this.AlienImage = image;
         }
 
-
-
-
         //do an update for every alien
         public void Update()
         {
